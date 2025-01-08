@@ -1,0 +1,58 @@
+<div classs=" container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="palette w-100 row" style="height: 75vh;">
+                <h3>Palette</h3>
+
+                <div *ngFor="let furniture of palette" class="palette-item col-sm-3 m-2" draggable="true"
+                    (dragstart)="onDragStart($event, furniture)">
+
+                    <img [src]="furniture.img" />
+                    <br>
+                    {{ furniture.name }}
+
+                    <img>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="floorplan w-100" #floor style="height: 75vh;">
+                <div *ngFor="let item of items" class="furniture" [ngStyle]="{
+                    top: item.top + 'px',
+                    left: item.left + 'px',
+
+                  }" (mousedown)="startDragging($event, item)">
+                    <div class="resize-handle" (mousedown)="startResizing($event, item)"></div>
+                    <!-- <div
+                   class="rotate-handle"
+                   (mousedown)="startRotating($event, item)"
+                 ></div> -->
+                    <!-- <div class="resize-handle" (mousedown)="startResizing($event, item)"></div> -->
+                    {{ item.name }}
+                    <br>
+                    <img class="catalogImg" [src]="item.img" [ngStyle]="{
+                        top: item.top + 'px',
+                        left: item.left + 'px',
+                        width: item.width + 'px',
+                        height: item.height + 'px',
+                      }" (mousedown)="startDragging($event, item)" />
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div *ngIf="selectedItem" class="object-properties">
+        <h3>Edit Object</h3>
+        <label>
+            Width:
+            <input type="number" [(ngModel)]="selectedItem.width" (change)="updateObject()" />
+        </label>
+        <label>
+            Height:
+            <input type="number" [(ngModel)]="selectedItem.height" (change)="updateObject()" />
+        </label>
+    </div> -->
+
+    <button class="btn" (click)="saveLayout()">save</button>
+    <button (click)="deleteSelectedItem()">Delete</button>

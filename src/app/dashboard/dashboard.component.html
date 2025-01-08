@@ -1,0 +1,55 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 d-flex my-4">
+            <mat-button-toggle-group #group="matButtonToggleGroup" [value]="selectedVal"
+                (click)="onValChange(group.value)" class="subToggle">
+                <mat-button-toggle value="Dashboard" class="w-100" style="font-size: 16px">
+                    Dashboard </mat-button-toggle>
+                <mat-button-toggle value="Facility" style="font-size: 16px">
+                    Facility
+                </mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2" *ngFor="let items of cardsData ">
+            <div class="shadowBox m-2">
+                <div class="p-3">
+                    <p class="cardHeading">{{items.count}}</p>
+                    <p class="cardSubHeading">{{items.desc}}</p>
+                    <div class="row status">
+                        <div class="col-sm-6">
+                            Active : {{items.active}}
+                        </div>
+                        <div class="col-sm-6">
+                            Inactive : {{items.inactive}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-6">
+            <div class="shadowBox p-3">
+
+                <apx-chart style="height: 40vh;" [series]="tempChartOptions.series" [chart]="tempChartOptions.chart"
+                    [xaxis]="tempChartOptions.xaxis" [yaxis]="tempChartOptions.yaxis"
+                    [tooltip]="tempChartOptions.tooltip" [stroke]="tempChartOptions.stroke"
+                    [title]="tempChartOptions.title">
+                </apx-chart>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="shadowBox p-3">
+                <apx-chart style="height: 40vh;" [series]="humidityChartOptions.series"
+                    [chart]="humidityChartOptions.chart" [xaxis]="humidityChartOptions.xaxis"
+                    [yaxis]="humidityChartOptions.yaxis" [title]="humidityChartOptions.title"
+                    [tooltip]="humidityChartOptions.tooltip" [stroke]="humidityChartOptions.stroke"
+                    [markers]="humidityChartOptions.markers">
+                </apx-chart>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,28 @@
+.heading {
+    font-family: "Inter";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: left;
+    text-underline-position: "from-font";
+    text-decoration-skip-ink: none;
+    color: #3E3D53;
+}
+
+.custom-header {
+    font-family: "Inter";
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 16px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+}
+.border-bottom {
+    border-bottom: 1px solid #f6f6f6;
+}
+
+.border {
+    border: 1px solid #f6f6f6;
+}

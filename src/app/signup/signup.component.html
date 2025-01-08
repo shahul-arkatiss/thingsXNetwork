@@ -1,0 +1,426 @@
+<div class="bg-image d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + imagePath + 'BG.svg)'}">
+    <div class="container">
+      <ngx-spinner bdColor="rgb(244, 244, 244, 0.1)" size="default" color="#23a864" type="ball-spin-clockwise"
+      [fullScreen]="false"></ngx-spinner>
+        <div class="row justify-content-center align-center align-items-center">
+            <ngx-spinner
+            bdColor="rgb(244, 244, 244, 0.1)"
+            size="default"
+            color="#23a864"
+            type="ball-spin-clockwise"
+            [fullScreen]="false"
+          ></ngx-spinner>
+          <div class="col-sm-7 m-3 align-center align-items-center ">
+            <div class="card p-3 center-block text-center d-flex flex-column align-items-center gap-2" style="border-radius: 5%;">
+              <!-- <h5>Welcome to <span class="span">Deals & Claims</span></h5> -->
+              <img class="img mt-2 text-center" [src]="imagePath + 'Frame 69.svg'" />
+              <p class="inter app-name mt-4">
+                ThingsX Network          </p>
+                <p class="loginTo mt-1">
+                    <span class="color">Register</span>Account
+                </p>
+              <form [formGroup]="loginForm" class="w-100 gap-2">
+                <!-- <p class="fontstyle title">Login</p> -->
+                 <span></span>
+                <mat-form-field
+                  appearance="outline"
+                   class="col-sm-5 "
+                >
+                  <mat-label class="ps-1" style="font-family: 'Poppins'"
+                    >First Name</mat-label
+                  >    
+                  <input
+                    matInput
+                    formControlName="username"
+                    required
+                    autocomplete="off"
+                    placeholder="Username"
+                  />
+                  <mat-error
+                    style="font-family: 'Poppins'"
+                    *ngIf="loginForm.get('username')?.errors?.['required']"
+                    >Email is required
+                  </mat-error>
+                  <mat-error
+                    style="font-family: 'Poppins'"
+                    *ngIf="loginForm.get('username')?.errors?.['pattern']"
+                    >Email is inValid
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field
+                  appearance="outline"
+                   class="col-sm-5 ml-3"
+                >
+                  <mat-label class="ps-1" style="font-family: 'Poppins'"
+                    >Last Name</mat-label
+                  >
+    
+                  <input
+                    matInput
+                    formControlName="username"
+                    required
+                    autocomplete="off"
+                    placeholder="Username"
+                  />
+                  <mat-error
+                    style="font-family: 'Poppins'"
+                    *ngIf="loginForm.get('username')?.errors?.['required']"
+                    >Email is required
+                  </mat-error>
+                  <mat-error
+                    style="font-family: 'Poppins'"
+                    *ngIf="loginForm.get('username')?.errors?.['pattern']"
+                    >Email is inValid
+                  </mat-error>
+                </mat-form-field>
+                <!-- <p class="fontstyle title">Password</p> -->
+                <br>
+                <mat-form-field
+                  appearance="outline"
+                  class="col-sm-10"
+    
+                >
+                  <mat-label class="ps-1" style="font-family: 'Poppins'"
+                    >Email</mat-label
+                  >
+    
+                  <input
+                    matInput
+                    formControlName="password"
+                    required
+                    autocomplete="off"
+                    placeholder="Password"
+                  />
+                  <!-- <button
+                    mat-icon-button
+                    matSuffix
+                    (click)="hide = !hide"
+                    [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide"
+                  >
+                    <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                  </button> -->
+                  <mat-error
+                    style="font-family: 'Poppins'"
+                    *ngIf="loginForm.get('password')?.errors?.['required']"
+                    >Password is required
+                  </mat-error>
+                  <mat-error
+                    style="font-family: 'Poppins'"
+                    *ngIf="loginForm.get('password')?.errors?.['minlength']"
+                    >Password atleast 6 characters required
+                  </mat-error>
+                  <mat-error
+                    style="font-family: 'Poppins'"
+                    *ngIf="loginForm.get('password')?.errors?.['pattern']"
+                    >Password must be pattern required 
+                  </mat-error>
+                </mat-form-field>
+      
+                 <br>
+                <mat-form-field
+                  appearance="outline"
+                  class="col-sm-10"
+    
+                >
+                  <mat-label class="ps-1" style="font-family: 'Poppins'"
+                    >Password</mat-label
+                  >
+    
+                  <input
+                    matInput
+                    formControlName="password"
+                    required
+                    autocomplete="off"
+                    placeholder="Password"
+                  />
+                  <!-- <button
+                    mat-icon-button
+                    matSuffix
+                    (click)="hide = !hide"
+                    [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide"
+                  >
+                    <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                  </button> -->
+                  <mat-error
+                    style="font-family: 'Poppins'"
+                    *ngIf="loginForm.get('password')?.errors?.['required']"
+                    >Password is required
+                  </mat-error>
+                  <mat-error
+                    style="font-family: 'Poppins'"
+                    *ngIf="loginForm.get('password')?.errors?.['minlength']"
+                    >Password atleast 6 characters required
+                  </mat-error>
+                  <mat-error
+                    style="font-family: 'Poppins'"
+                    *ngIf="loginForm.get('password')?.errors?.['pattern']"
+                    >Password must be pattern required 
+                  </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field
+                  appearance="outline"
+                  class="col-sm-10"
+    
+                >
+                  <mat-label class="ps-1" style="font-family: 'Poppins'"
+                    >Mobile Number</mat-label
+                  >
+    
+                  <input
+                    matInput
+                    formControlName="password"
+                    required
+                    autocomplete="off"
+                    placeholder="Mobile Number"
+                  />
+                  <!-- <button
+                    mat-icon-button
+                    matSuffix
+                    (click)="hide = !hide"
+                    [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide"
+                  >
+                    <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                  </button> -->
+                  <mat-error
+                    style="font-family: 'Poppins'"
+                    *ngIf="loginForm.get('password')?.errors?.['required']"
+                    >Password is required
+                  </mat-error>
+                  <mat-error
+                    style="font-family: 'Poppins'"
+                    *ngIf="loginForm.get('password')?.errors?.['minlength']"
+                    >Password atleast 6 characters required
+                  </mat-error>
+                  <mat-error
+                    style="font-family: 'Poppins'"
+                    *ngIf="loginForm.get('password')?.errors?.['pattern']"
+                    >Password must be pattern required 
+                  </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field
+                  appearance="outline"
+                  class="col-sm-10"
+    
+                >
+                  <mat-label class="ps-1" style="font-family: 'Poppins'"
+                    >Company</mat-label
+                  >
+    
+                  <input
+                    matInput
+                    formControlName="password"
+                    required
+                    autocomplete="off"
+                    placeholder="Company"
+                  />
+                  <!-- <button
+                    mat-icon-button
+                    matSuffix
+                    (click)="hide = !hide"
+                    [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide"
+                  >
+                    <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                  </button> -->
+                  <mat-error
+                    style="font-family: 'Poppins'"
+                    *ngIf="loginForm.get('password')?.errors?.['required']"
+                    >Password is required
+                  </mat-error>
+                  <mat-error
+                    style="font-family: 'Poppins'"
+                    *ngIf="loginForm.get('password')?.errors?.['minlength']"
+                    >Password atleast 6 characters required
+                  </mat-error>
+                  <mat-error
+                    style="font-family: 'Poppins'"
+                    *ngIf="loginForm.get('password')?.errors?.['pattern']"
+                    >Password must be pattern required 
+                  </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field
+                  appearance="outline"
+                  class="col-sm-10"
+    
+                >
+                  <mat-label class="ps-1" style="font-family: 'Poppins'"
+                    >Address</mat-label
+                  >
+    
+                  <input
+                    matInput
+                    formControlName="password"
+                    required
+                    autocomplete="off"
+                    placeholder="Address"
+                  />
+                  <!-- <button
+                    mat-icon-button
+                    matSuffix
+                    (click)="hide = !hide"
+                    [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide"
+                  >
+                    <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                  </button> -->
+                  <mat-error
+                    style="font-family: 'Poppins'"
+                    *ngIf="loginForm.get('password')?.errors?.['required']"
+                    >Password is required
+                  </mat-error>
+                  <mat-error
+                    style="font-family: 'Poppins'"
+                    *ngIf="loginForm.get('password')?.errors?.['minlength']"
+                    >Password atleast 6 characters required
+                  </mat-error>
+                  <mat-error
+                    style="font-family: 'Poppins'"
+                    *ngIf="loginForm.get('password')?.errors?.['pattern']"
+                    >Password must be pattern required 
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field
+                appearance="outline"
+                 class="col-sm-5"
+              >
+                <mat-label class="ps-1" style="font-family: 'Poppins'"
+                  >Street</mat-label
+                >    
+                <input
+                  matInput
+                  formControlName="username"
+                  required
+                  autocomplete="off"
+                  placeholder="Street"
+                />
+                <mat-error
+                  style="font-family: 'Poppins'"
+                  *ngIf="loginForm.get('username')?.errors?.['required']"
+                  >Email is required
+                </mat-error>
+                <mat-error
+                  style="font-family: 'Poppins'"
+                  *ngIf="loginForm.get('username')?.errors?.['pattern']"
+                  >Email is inValid
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field
+                appearance="outline"
+                 class="col-sm-5 ml-3"
+              >
+                <mat-label class="ps-1" style="font-family: 'Poppins'"
+                  >ZIP</mat-label
+                >
+  
+                <input
+                  matInput
+                  formControlName="username"
+                  required
+                  autocomplete="off"
+                  placeholder="ZIP"
+                />
+                <mat-error
+                  style="font-family: 'Poppins'"
+                  *ngIf="loginForm.get('username')?.errors?.['required']"
+                  >Email is required
+                </mat-error>
+                <mat-error
+                  style="font-family: 'Poppins'"
+                  *ngIf="loginForm.get('username')?.errors?.['pattern']"
+                  >Email is inValid
+                </mat-error>
+              </mat-form-field>
+              <!-- <p class="fontstyle title">Password</p> -->
+              <br>
+              <mat-form-field
+              appearance="outline"
+               class="col-sm-5"
+            >
+              <mat-label class="ps-1" style="font-family: 'Poppins'"
+                >State</mat-label
+              >    
+              <input
+                matInput
+                formControlName="username"
+                required
+                autocomplete="off"
+                placeholder="State"
+              />
+              <mat-error
+                style="font-family: 'Poppins'"
+                *ngIf="loginForm.get('username')?.errors?.['required']"
+                >Email is required
+              </mat-error>
+              <mat-error
+                style="font-family: 'Poppins'"
+                *ngIf="loginForm.get('username')?.errors?.['pattern']"
+                >Email is inValid
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field
+              appearance="outline"
+               class="col-sm-5 ml-3"
+            >
+              <mat-label class="ps-1" style="font-family: 'Poppins'"
+                >Country</mat-label
+              >
+
+              <input
+                matInput
+                formControlName="username"
+                required
+                autocomplete="off"
+                placeholder="Country"
+              />
+              <mat-error
+                style="font-family: 'Poppins'"
+                *ngIf="loginForm.get('username')?.errors?.['required']"
+                >Email is required
+              </mat-error>
+              <mat-error
+                style="font-family: 'Poppins'"
+                *ngIf="loginForm.get('username')?.errors?.['pattern']"
+                >Email is inValid
+              </mat-error>
+            </mat-form-field>
+            <!-- <p class="fontstyle title">Password</p> -->
+            <br>
+                <!-- <div>
+                  <a
+                    class="link forgot-password"
+                    href="#"
+                    style="font-family: 'Poppins'"
+                    >Forgot password?</a
+                  >
+                </div> -->
+      
+                <div class="col-sm-12 p-0">
+                  <button
+                    type="submit"
+                    class="col-sm-9 col-md-9 col-lg-9 bg-color"
+                    mat-raised-button
+                    (click)="login()"
+                  >
+                    Register
+                  </button>
+                </div>
+                <div>
+                  <p class="account mt-3">
+                 Have an account? &nbsp;<span class="signup-link"
+                      ><a class="link" href="#">Click to Login</a></span
+                    >
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      

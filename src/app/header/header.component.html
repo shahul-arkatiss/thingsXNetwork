@@ -1,0 +1,118 @@
+<div class="container-fluid p-0" style="height: 100vh">
+  <div class="row data-section m-0 p-2" id="menu">
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center justify-content-center">
+        <img class="img" [src]="imagePath + 'Frame 69.svg'" />
+        <h3 class="mt-4 ml-4 headerName">ThingsX Network</h3>
+
+        <mat-button-toggle-group #group="matButtonToggleGroup" [value]="selectedVal" (click)="onValChange(group.value)"
+          class="ml-5">
+          <mat-button-toggle value="Home" class="w-100" style="font-size: 16px">
+            Home </mat-button-toggle>
+          <mat-button-toggle value="Configurations" style="font-size: 16px">
+            Configurations
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn subToggle mr-5" routerLink="/newSetup">New Setup</button>
+        <img src="assets/images/Cart.svg" class="mr-5">
+        <img src="assets/images/Notification.svg" class="mr-5">
+        <img src="assets/images/Rectangle 20.svg">
+        <div  class="mr-5">
+          <p class="userName m-0">John Williams</p>
+          <p class="userRole m-0">ADMIN</p>
+          </div>
+        <img src="assets/images/Logout.svg" class="mr-5">
+
+
+
+        <!-- <img
+          class="bell float-end mt-2 pointer"
+          [src]=" this.activeMenu === 'subscription' ? imagePath + 'Final Design/subscription1.svg' : imagePath + 'Final Design/subscription.svg'"
+              routerLink="/subscription"
+          (click)="subscriptions()"
+          title="Subscription"
+        /> -->
+        <!-- <img
+            class="bell float-end mt-2 pointer"
+            [src]="imagePath + 'Final Design.svg/Group 1@2x.png'"
+            (click)="goToNotifications()"
+          /> -->
+
+        <!-- <img
+            class="profile float-end"
+            [src]="imagePath + 'profile Icon.png.png'"
+            [matMenuTriggerFor]="profile"
+          /> -->
+
+        <mat-menu #profile="matMenu" class="mt-3">
+          <!-- <button mat-menu-item (click)="this.router.navigate(['/permissions'])">
+             Permission
+            </button> -->
+          <!-- <button mat-menu-item (click)="this.router.navigate(['/login'])">
+              Logout
+            </button> -->
+          <!-- <button mat-menu-item (click)="logout()">
+              Logout
+            </button> -->
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+  <div class="row main-setion m-0 p-0">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!-- <div
+    class=""
+    style="border-top: 1px solid #cecece; position: relative; top: 18%"
+  >
+    <div class="row w-100 m-0 p-0">
+      <div class="d-flex flex-column gap-2 align-items-center">
+        <h5 class="newsletter">Subscribe to our newsletter</h5>
+        <div class="d-flex align-items-center">
+          <div class="emailIcon">
+            <div class="subscription-container">
+              <div class="icon">
+                <img class="img mt-3 m-3" [src]="imagePath + 'mailIcon.svg'" />
+              </div>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                class="email-input"
+              />
+              <button class="subscribe-button">Subscribe</button>
+            </div>
+          </div>
+        </div>
+        <div class="w-100 d-flex justify-content-between arkalogo mt-3">
+          <div class="d-flex align-items-center">
+            <img
+              class="img mt-2 m-3"
+              [src]="imagePath + 'Arkatiss_Logo.svg.svg'"
+            />
+            <h3 class="m-0 p-0" style="color: #4b4d50">DATAHUB</h3>
+          </div>
+          <div class="menulist d-flex align-items-center">
+            <div class="m-0 d-flex align-items-center gap-3 unorder-list">
+              <div class="list-order" *ngFor="let menu of menuListData">
+                {{ menu.label }}
+              </div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center">
+            <img class="img mt-2 m-3" [src]="imagePath + 'facebook.svg'" />
+            <img class="img mt-2 m-3" [src]="imagePath + 'Input.svg'" />
+            <img class="img mt-2 m-3" [src]="imagePath + 'youtube.svg'" />
+  
+            <img class="img mt-2 m-3" [src]="imagePath + 'twitter.svg'" />
+          </div>
+        </div>
+        <div class="developed d-flex align-items-center mt-3">
+          Developed By Arkatiss LLP Copyright 2024, All rights Reserved
+        </div>
+      </div>
+    </div>
+  </div> -->

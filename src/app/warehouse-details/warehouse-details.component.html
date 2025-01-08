@@ -1,0 +1,70 @@
+<div classs="container ">
+  <div class="row">
+    <div class="col-sm-12 d-flex my-4">
+      <p class="mt-2 selected-warehouse">Warehouse - 1</p>
+      <mat-button-toggle-group #group="matButtonToggleGroup" [value]="selectedVal" (click)="onValChange(group.value)"
+        class="ml-5 subToggle">
+        <mat-button-toggle value="Analytics" class="w-100" style="font-size: 16px">
+          Analytics
+         </mat-button-toggle>
+        <mat-button-toggle value="Metrics" style="font-size: 16px">
+          Metrics
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  </div>
+  <div class="row" *ngIf="selectedVal == 'Analytics'">
+    <div class="col-sm-6">
+      <div class="shadowBox p-3">
+        <apx-chart style="height: 40vh;" [series]="barChartOptions.series" [chart]="barChartOptions.chart"
+          [xaxis]="barChartOptions.xaxis" [yaxis]="barChartOptions.yaxis" [title]="barChartOptions.title">
+        </apx-chart>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="shadowBox p-3">
+
+        <apx-chart style="height: 40vh;" [series]="dounutChartOptions.series" [chart]="dounutChartOptions.chart"
+          [labels]="dounutChartOptions.labels" [plotOptions]="dounutChartOptions.plotOptions"
+          [title]="dounutChartOptions.title" [legend]="dounutChartOptions.legend"
+          [responsive]="dounutChartOptions.responsive">
+        </apx-chart>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="shadowBox p-3">
+        <apx-chart style="height: 40vh;" [series]="chartOptions.series" [chart]="chartOptions.chart"
+          [labels]="chartOptions.labels" [responsive]="chartOptions.responsive" [title]="chartOptions.title">
+        </apx-chart>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3" *ngIf="selectedVal == 'Analytics'">
+    <div class="col-sm-6">
+      <div class="shadowBox p-3">
+
+        <apx-chart style="height: 40vh;" [series]="tempChartOptions.series" [chart]="tempChartOptions.chart"
+          [xaxis]="tempChartOptions.xaxis" [yaxis]="tempChartOptions.yaxis" [tooltip]="tempChartOptions.tooltip"
+          [stroke]="tempChartOptions.stroke" [title]="tempChartOptions.title">
+        </apx-chart>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="shadowBox p-3">
+        <apx-chart style="height: 40vh;" [series]="humidityChartOptions.series" [chart]="humidityChartOptions.chart"
+          [xaxis]="humidityChartOptions.xaxis" [yaxis]="humidityChartOptions.yaxis" [title]="humidityChartOptions.title"
+          [tooltip]="humidityChartOptions.tooltip" [stroke]="humidityChartOptions.stroke"
+          [markers]="humidityChartOptions.markers">
+        </apx-chart>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="height: 77vh" *ngIf="selectedVal == 'Metrics'">
+    <div class="col-sm-12">
+        <arka-grid [rowData]="filteredData" [colData]="colData" 
+        [isLoading]="isLoading"
+        [pagination]="[{pagination: 'static',rowsPerPageOptions: [50, 100, 150],totalRecords: rowData.length}]">
+    </arka-grid>
+    </div>
+  </div>
+</div>

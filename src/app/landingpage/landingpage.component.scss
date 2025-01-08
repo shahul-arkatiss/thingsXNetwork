@@ -1,0 +1,39 @@
+.heading {
+    font-family: "Inter";
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 36px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+}
+
+.bg-image {
+    height: 1000px;
+    background-repeat: no-repeat;
+}
+
+.bg-color {
+    //styleName: body/smallStrong;
+    font-family: "Inter";
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    background-color: #3E3D53 !important;
+    color: #fff !important;
+}
+
+.sub-heading {
+
+    font-family: "Inter";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 36px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+}

@@ -1,0 +1,304 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+/* Core Grid CSS */
+@import "ag-grid-community/styles/ag-grid.css";
+// /* Quartz Theme Specific CSS */
+// @import "ag-grid-community/styles/ag-theme-quartz.css";
+// @import "ag-grid-community/styles/ag-theme-alpine.css";
+// @import "ag-grid-community/styles//ag-theme-balham.css";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+
+/* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+
+// @import "./assets/aggrid.scss";
+// @import "~handsontable/dist/handsontable.full.css";
+// @import "/src/app/shared/prime-table/styles/prime-styles.scss";
+
+// html,
+// body {
+//   height: 100%;
+// }
+// body {
+//   margin: 0;
+//   font-family: Roboto, "Helvetica Neue", sans-serif;
+// }
+
+.mat-button-toggle-group-appearance-standard {
+  border: none !important;
+}
+
+// .ag-theme-balham .ag-root-wrapper {
+//   border: 2px solid #d8d8d8 !important;
+// }
+
+// .ag-theme-balham .ag-column-drop-horizontal.ag-column-drop {
+//   font-size: 15px !important;
+// }
+
+// .ag-theme-balham .ag-ltr .ag-cell {
+//   color: #606060;
+//   font-family: "Poppins", sans-serif;
+//   font-size: 16px;
+//   font-weight: 500;
+// }
+
+// span.ag-header-cell-text {
+//   font-family: "Poppins" !important;
+//   font-style: normal;
+//   font-weight: bold !important;
+//   font-size: 17px;
+//   // color: #040404;
+//   color: #d92337 !important;
+// }
+
+.scrollbar-primary::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #999; // #ff8f9c; // #999999;
+  cursor: pointer;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 4px;
+  height: 4px !important;
+  cursor: pointer;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  width: 4px;
+  background-color: #999; // #ff8f9c; // #999999;
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  scroll-behavior: smooth;
+}
+
+.calendarIcon {
+
+  .mat-button,
+  .mat-icon-button,
+  .mat-stroked-button,
+  .mat-flat-button {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+.p-inputtext {
+  margin-right: auto;
+  margin-left: auto;
+  // width: 100%;
+  // width: 279px !important;
+  width: 319px;
+}
+
+.p-dropdown .p-dropdown-label {
+  background: transparent;
+  border: 0 none;
+  width: 272px !important;
+  // width: 346px;
+}
+
+.p-calendar-w-btn .p-inputtext {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  width: 276px !important;
+}
+
+.apexcharts-menu-icon,
+.apexcharts-selection-icon {
+  position: relative;
+  padding-right: 50px;
+}
+
+.p-datepicker table td>span {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  border-radius: 50%;
+  transition: box-shadow 0.2s;
+  border: 1px solid transparent;
+}
+
+.p-datepicker {
+  width: 100px !important;
+}
+
+.p-dropdown {
+  width: 100% !important;
+}
+
+.mat-mdc-select-value {
+  width: auto !important;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+  // white-space: nowrap;
+  // // display: flex;
+  // flex-shrink: 1;
+  // float: right !important;
+}
+
+.mat-mdc-select-trigger {
+  width: auto !important;
+}
+
+.mat-mdc-select {
+  width: auto !important;
+}
+
+// .cdk-overlay-pane {
+//   width: 200px !important;
+// }
+
+.custom-accept-btn {
+  background-color: #23a763 !important;
+  color: white !important;
+  border: 1px solid #23a763;
+  border-radius: 6px;
+  font-family: Poppins;
+  width: 120px;
+  height: 35px;
+}
+
+.custom-reject-btn:hover {
+  background-color: transparent !important;
+  color: #23a763 !important;
+  border-color: 1px solid transparent !important;
+}
+
+.custom-reject-btn {
+  border-radius: 6px;
+  // font-size: 12px;
+  font-family: Poppins;
+  width: 120px;
+  height: 35px;
+  border: 1px solid #23a763;
+  color: #23a763;
+  background-color: #fff;
+}
+
+.p-dialog .p-dialog-header {
+  display: flex;
+  justify-content: end;
+}
+
+.mat-step-icon-state-edit {
+  background-color: #3E3D53 !important;
+  color: #fff !important;
+}
+
+.mat-step-text-label {
+  //styleName: Subtitle 1;
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.0015em;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #3E3D53;
+
+}
+.subToggle .mat-button-toggle-label-content{
+  border: 1px solid #3E3D53 !important;
+  border-radius: 100px !important;
+}
+.text-button.mat-button-toggle.mat-button-toggle-appearance-standard {
+  color: #3E3D53;
+  border:1px solid #3E3D53 !important;
+  border-radius: 100px;
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  text-underline-position:"from-font";
+  text-decoration-skip-ink: none;
+}
+
+.mat-button-toggle-appearance-standard.mat-button-toggle-checked {
+  color: #fff !important;
+  background-color: #3E3D53 !important;
+  border-radius: 100px !important;
+  border-right: 0px !important;
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+  text-underline-position: "from-font";
+  text-decoration-skip-ink: none;
+
+}
+.shadowBox{
+ box-shadow: 10px 10px 5px #ECECEC;
+ border: 1px solid #EFEFEF;
+}
+
+.mat-button-toggle-appearance-standard {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #3E3D53 !important;
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+  text-underline-position: "from-font";
+  text-decoration-skip-ink: none;
+
+
+}
+
+.mat-stepper-horizontal-line {
+
+  border-top-width: 2px !important;
+  border-top-style: solid;
+  flex: auto;
+  height: 0;
+  margin: 0 -16px;
+  min-width: 32px;
+  border-top-color: #3e3d53 !important;
+
+
+}
+
+.mat-step-icon-state-number {
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  flex-shrink: 0;
+  position: relative;
+  color: #3e3d53 !important;
+  background-color: rgb(255 255 255) !important;
+  border: 1px solid #3e3d53 !important;
+}
+
+.mat-button-toggle-group-appearance-standard .mat-button-toggle-appearance-standard+.mat-button-toggle-appearance-standard {
+  border-left: solid 0px var(--mat-standard-button-toggle-divider-color) !important;
+}
+
+.mat-button-toggle-label-content {
+  -webkit-user-select: none;
+  user-select: none;
+  display: inline-block;
+  padding: 0 5px;
+  line-height: var(--mat-legacy-button-toggle-height);
+  position: relative;
+}

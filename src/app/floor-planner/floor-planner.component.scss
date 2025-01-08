@@ -1,0 +1,89 @@
+.floorplan-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.floorplan {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  border: 2px dashed #ccc;
+  background-color: #f9f9f9;
+  overflow: hidden; 
+}
+
+.furniture {
+  position: absolute;
+  // background-color: #dff0d8;
+  // border: 1px solid #3c763d;
+  text-align: center;
+  user-select: none;
+  cursor: move;
+}
+
+.furniture .resize-handle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #333;
+  cursor: nwse-resize;
+}
+
+.palette {
+  width: 200px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.rotation-controls {
+  margin-top: 10px;
+}
+
+.rotation-controls label {
+  margin-right: 10px;
+}
+
+.rotation-controls input {
+  width: 60px;
+}
+
+
+.furniture .rotate-handle {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #555;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translateX(-50%);
+}
+
+.palette-item {
+  padding: 10px;
+  // margin-bottom: 10px;
+  // background-color: #428bca;
+  border: 1px solid grey;
+  color: #000000;
+  text-align: center;
+  cursor: grab;
+  user-select: none;
+}
+
+.furniture .rotate-handle {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #555;
+  border-radius: 50%;
+  cursor: grab;
+  transform: translateX(-50%);
+}
+

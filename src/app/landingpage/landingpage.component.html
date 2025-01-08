@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-center align-items-center">
+    <div class="container">
+        <div class="row justify-content-center align-center align-items-center">
+            <ngx-spinner bdColor="rgb(244, 244, 244, 0.1)" size="default" color="#23a864" type="ball-spin-clockwise"
+                [fullScreen]="false"></ngx-spinner>
+            <div class="col-sm-8 m-3 align-center align-items-center justify-content-center">
+                <p class="heading mt-4">Welcome to ThingsX Network</p>
+                <p class="sub-heading">
+                    Build Your Facility easily with drag and drop Components</p>
+                <div class="bg-image d-flex justify-content-center align-items-center ml-5"
+                    [ngStyle]="{'background-image': 'url(' + imagePath + 'Vector.svg)'}">
+                    <button type="submit" class="col-sm-2 mb-5 bg-color"
+                        mat-raised-button (click)="getStarted()">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

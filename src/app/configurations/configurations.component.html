@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-sm-12">
+        <mat-button-toggle-group #group="matButtonToggleGroup" class="mt-3" [value]="selectedVal" (click)="onValChange(group.value)">
+            <mat-button-toggle value="Organization Master Data" class="text-button">
+                Organization Master Data </mat-button-toggle>
+            <mat-button-toggle value="ThingsX" class="text-button">
+                ThingsX
+            </mat-button-toggle>
+            <mat-button-toggle value="End Points" class="text-button">
+                End Points </mat-button-toggle>
+            <mat-button-toggle value="Node Manager" class="text-button">
+                Node Manager
+            </mat-button-toggle>
+            <mat-button-toggle value="Users & Access Mangement" class="text-button">
+                Users & Access Mangement
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+    <div class="row pl-5 mt-3"> 
+        <div class="col-sm-9 border " style="height: 77vh">
+            <p class="heading border-bottom py-3">{{this.selectedVal}}</p>
+            <arka-grid [rowData]="filteredData" [colData]="colData" [columnTemplate]="{ actions: templateRef}"
+                [isLoading]="isLoading"
+                [pagination]="[{pagination: 'static',rowsPerPageOptions: [50, 100, 150],totalRecords: rowData.length}]">
+            </arka-grid>
+            <ng-template #templateRef let-item>
+                <span>
+                    <img src="assets/images/Edit.svg" (click)="deleteRecord(item); updateDom()">&nbsp;&nbsp;
+                </span>
+                <span>
+                    <!-- <i class="fa-solid fa-trash-can pointer trash-icon trash-color f-22"
+                        ></i> -->
+                    <img src="assets/images/Delete.svg" (click)="deleteRecord(item); updateDom()">
+                </span>
+            </ng-template>
+            <!-- <ng-template #chipsTemp let-item>
+                hai
+            </ng-template> -->
+        </div>
+        <div class="col-sm-3">
+            <form [formGroup]="orgMasterDataUploadForm" class="border px-3">
+                <p class="heading border-bottom py-3">Create New</p>
+                <mat-form-field appearance="outline" class=" col-sm-12">
+                    <mat-label>Division Name</mat-label>
+                    <input matInput placeholder="Last name, First name" formControlName="divisionName" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class=" col-sm-12">
+                    <mat-label>Company Name</mat-label>
+                    <input matInput placeholder="Last name, First name" formControlName="companyName" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class=" col-sm-12">
+                    <mat-label>Warehouse Name</mat-label>
+                    <input matInput placeholder="Last name, First name" formControlName="warehouseName" required>
+                </mat-form-field>
+            </form>
+        </div>
+    </div>
+
+</div>
