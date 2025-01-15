@@ -10,7 +10,18 @@
   height: 600px;
   border: 2px dashed #ccc;
   background-color: #f9f9f9;
-  overflow: hidden; 
+  overflow: hidden;
+}
+
+.config-heading {
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
 }
 
 .furniture {
@@ -34,7 +45,7 @@
 
 .palette {
   width: 200px;
-  border: 1px solid #ddd;
+  border: 1px solid #e8e8e8;
   background-color: #fff;
   padding: 10px;
 }
@@ -64,10 +75,17 @@
   transform: translateX(-50%);
 }
 
+.floorplan {
+  position: relative;
+  transform-origin: 0 0; // Ensure scaling happens from the top-left corner
+}
+
 .palette-item {
   padding: 10px;
   // margin-bottom: 10px;
   // background-color: #428bca;
+  min-height: 100px;
+  max-height: 100px;
   border: 1px solid grey;
   color: #000000;
   text-align: center;
@@ -86,4 +104,3 @@
   cursor: grab;
   transform: translateX(-50%);
 }
-

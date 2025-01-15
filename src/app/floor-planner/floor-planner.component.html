@@ -1,41 +1,83 @@
 <div classs=" container">
     <div class="row">
-        <div class="col-sm-3">
-            <div class="palette w-100 row" style="height: 75vh;">
-                <h3>Palette</h3>
+        <div class="col-sm-2 m-0 p-0">
 
-                <div *ngFor="let furniture of palette" class="palette-item col-sm-3 m-2" draggable="true"
+            <div class="palette w-100 row  align-center align-items-center justify-content-center" style="height: 75vh;">
+                <!-- <h3>Palette</h3> -->
+                <div class="col-sm-12">
+                    <mat-button-toggle-group #group="matButtonToggleGroup" class="mt-3 " [value]="selectedVal"
+                        (click)="onValChange(group.value)">
+
+                        <mat-button-toggle value="ThingsX" class="text-button">
+                            Facility Layout
+                        </mat-button-toggle>
+                        <mat-button-toggle value="End Points" class="text-button">
+                            Facility Objects
+                        </mat-button-toggle>
+                    </mat-button-toggle-group>
+                </div>
+                <div *ngFor="let furniture of palette" class="palette-item col-sm-3 m-2 " draggable="true"
                     (dragstart)="onDragStart($event, furniture)">
 
-                    <img [src]="furniture.img" />
-                    <br>
-                    {{ furniture.name }}
+                    <img [src]="furniture.img" class="img-fluid" style="max-height: 50px;" />
+                    <p>{{ furniture.name }}</p>
 
-                    <img>
                 </div>
             </div>
         </div>
-        <div class="col-sm-9">
-            <div class="floorplan w-100" #floor style="height: 75vh;">
+        <div class="col-sm-8 ml-0 pl-0" style="overflow: scroll;">
+            <div class="zoom-controls">
+                <button class="btn btn-primary" (click)="zoomIn()">Zoom In</button>
+                <button class="btn btn-secondary" (click)="zoomOut()">Zoom Out</button>
+                <!-- <span>Zoom Level: {{ zoomLevel }}%</span> -->
+            </div>
+            <div class="floorplan w-100" #floor style="height: 75vh; overflow: hidden;" 
+            [ngStyle]="{ 
+                transform: 'scale(' + zoomFactor + ')',
+                transformOrigin: '0 0'
+              }">
                 <div *ngFor="let item of items" class="furniture" [ngStyle]="{
-                    top: item.top + 'px',
-                    left: item.left + 'px',
-
+                    top: (item.top * zoomFactor) + 'px',
+                    left: (item.left * zoomFactor) + 'px',
+                    width: (item.width * zoomFactor) + 'px',
+                    height: (item.height * zoomFactor) + 'px'
                   }" (mousedown)="startDragging($event, item)">
                     <div class="resize-handle" (mousedown)="startResizing($event, item)"></div>
-                    <!-- <div
-                   class="rotate-handle"
-                   (mousedown)="startRotating($event, item)"
-                 ></div> -->
-                    <!-- <div class="resize-handle" (mousedown)="startResizing($event, item)"></div> -->
-                    {{ item.name }}
-                    <br>
+
                     <img class="catalogImg" [src]="item.img" [ngStyle]="{
                         top: item.top + 'px',
                         left: item.left + 'px',
                         width: item.width + 'px',
                         height: item.height + 'px',
-                      }" (mousedown)="startDragging($event, item)" />
+                      }" (mousedown)="startDragging($event, item)" *ngIf="item.name != 'input'" />
+                      <input mat-input [(ngModel)]="item.val" *ngIf="item.name == 'input'" >
+
+                </div>
+            </div>
+            <!-- <div class="floorplan w-100" #floor [ngStyle]="{ 
+                transform: 'scale(' + zoomFactor + ')',
+                transformOrigin: '0 0'
+              }" style="height: 75vh; overflow: hidden;">
+                <div *ngFor="let item of items" class="furniture" [ngStyle]="{
+                    top: (item.top * zoomFactor) + 'px',
+                    left: (item.left * zoomFactor) + 'px',
+                    width: (item.width * zoomFactor) + 'px',
+                    height: (item.height * zoomFactor) + 'px'
+                  }">
+                  <img class="catalogImg" [src]="item.img" />
+                </div>
+              </div> -->
+        </div>
+        <div class="col-sm-2 align-center align-items-center justify-content-center">
+
+            <div class="palette w-100 row align-center align-items-center justify-content-center" style="height: 75vh;">
+                <h3 class="col-sm-12 text-center w-100 align-items-center justify-content-center config-heading">Configuration</h3>
+
+                <div *ngFor="let item of configData" class="config-item col-sm-12 m-2" draggable="true"
+                    (dragstart)="onDragStart($event, item)">
+
+                    <img [src]="item.img" class="img-fluid" style="max-height: 50px;" />
+                    {{ item.name }}
 
                 </div>
             </div>

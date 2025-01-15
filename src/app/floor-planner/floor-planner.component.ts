@@ -1,6 +1,10 @@
 
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import * as go from 'gojs';
+import { Router } from 'gojs';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ApiService } from '../services/api.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-floor-planner',
   templateUrl: './floor-planner.component.html',
@@ -14,6 +18,7 @@ export class FloorPlannerComponent {
 
   ];
 
+
   // Palette of objects to add
   // palette: any[] = [
   //   { name: 'Wall', 
@@ -23,37 +28,48 @@ export class FloorPlannerComponent {
   //   { name: 'Chair', width: 50, height: 50 },
   //   { name: 'Sofa', width: 150, height: 70 },
   // ];
+  zoomFactor: number = 1; // Default zoom level (1 = 100%)
+  zoomStep: number = 0.1; // Step for zoom in/out
+  minZoom: number = 0.5; // Minimum zoom level (50%)
+  maxZoom: number = 2; // Maximum zoom level (200%)
+
   palette: any[] = [
     {
       name: 'Wall',
       width: "",
       height: 300,
-      img: '../../assets/images/Line.svg'
+      img: '../../assets/images/Line.svg',
+      val:""
     },
     {
       name: 'Doors 1',
       width: "",
       height: 300,
-      img: '../../assets/images/Door_1.svg'
+      img: '../../assets/images/Door_1.svg',
+      val:""
+
     },
     {
       name: 'Doors 2',
       width: "",
       height: 300,
-      img: '../../assets/images/Door_2.svg'
+      img: '../../assets/images/Door_2.svg',
+      val:""
     },
     {
       name: 'Doors 3',
       width: "",
       height: 300,
-      img: '../../assets/images/Door_3.svg'
+      img: '../../assets/images/Door_3.svg',
+      val:""
     },
 
     {
       name: 'Doors 4',
       width: "",
       height: 300,
-      img: '../../assets/images/Door_4.svg'
+      img: '../../assets/images/Door_4.svg',
+      val:""
     },
     // {
     //   name: 'Circle 1',
@@ -71,43 +87,60 @@ export class FloorPlannerComponent {
       name: 'Loading Area',
       width: "",
       height: 300,
-      img: '../../assets/images/Loading.svg'
+      img: '../../assets/images/Loading.svg',
+      val:""
 
     },
     {
       name: 'Unloading Area', width: "", height: 300,
-      img: '../../assets/images/unloading.svg'
+      img: '../../assets/images/unloading.svg',
+      val:""
 
     },
     {
       name: 'Packing Area', width: "", height: 300,
-      img: '../../assets/images/packages.svg'
+      img: '../../assets/images/packages.svg',
+      val:""
 
     }, {
       name: 'Shelfs', width: "", height: 300,
-      img: '../../assets/images/Shelf.svg'
+      img: '../../assets/images/Shelf.svg',
+      val:""
 
     }, {
       name: 'Fork Lift', width: "", height: 300,
-      img: '../../assets/images/Fork lift.svg'
+      img: '../../assets/images/Fork lift.svg',
+      val:""
 
     }, {
       name: 'Coveyor Belts', width: "", height: 300,
-      img: '../../assets/images/conveyor-belt.svg'
+      img: '../../assets/images/conveyor-belt.svg',
+      val:""
 
     }, {
       name: 'Office', width: "", height: 300,
-      img: '../../assets/images/Office.svg'
+      img: '../../assets/images/Office.svg',
+      val:""
 
     }, {
       name: 'Tucks', width: "", height: 300,
-      img: '../../assets/images/Trucks.svg'
+      img: '../../assets/images/Trucks.svg',
+      val:""
 
     }, {
       name: 'Cold Storage', width: "", height: 300,
-      img: '../../assets/images/cold-storage.svg'
+      img: '../../assets/images/cold-storage.svg',
+      val:""
 
     },
+    {
+      name: 'input', width: "", height: 300,
+      img: '../../assets/images/cold-storage.svg',
+      val:""
+
+    },
+  ];
+  configData: any[] = [
   ];
 
   selectedItem: any = null;
@@ -115,6 +148,74 @@ export class FloorPlannerComponent {
   resizingItem: any = null;
   offsetX: number = 0;
   offsetY: number = 0;
+
+  selectedVal = "Organization Master Data"
+  purchaseData: any;
+
+    constructor(
+      private spinner: NgxSpinnerService,
+      private snack: MatSnackBar,
+      private service: ApiService
+    ) {
+      this.getPurchaseInventory()
+    }
+
+    getPurchaseInventory() {
+      const body = {
+        "company_id": parseInt(sessionStorage.getItem("company_id")!),
+      }
+      this.service.getPurchaseInventory(body).subscribe(
+        (res) => {
+          
+          this.spinner.hide();
+          if (res.status == "success") {
+            this.purchaseData = res.data
+            this.purchaseData.map((item:any)=>{
+             this.configData.push({
+              name:item.product_name,
+              width: "",
+              height: 300,
+              img: '../../assets/images/Line.svg',
+              item
+            }) 
+            })
+            console.log(this.configData)
+            this.snack.open(res.message, 'Ok', { duration: 3000 });
+  
+          } else {
+            this.snack.open(res.message, 'Ok', { duration: 3000 });
+  
+          }
+        },
+        (err) => {
+          this.spinner.hide();
+  
+          this.snack.open(err, 'Ok', { duration: 3000 });
+        })
+    }
+  onValChange(val: string) {
+    this.selectedVal = val
+    console.log(this.selectedVal)
+    if (val == "Home") {
+      // this.router.navigate(['/home']);
+
+    } else if (val == "Configurations") {
+      // this.router.navigate(['/configuration']);
+    }
+  }
+
+  zoomIn() {
+    if (this.zoomFactor < this.maxZoom) {
+      this.zoomFactor = parseFloat((this.zoomFactor + this.zoomStep).toFixed(2));
+    }
+  }
+
+  zoomOut() {
+    if (this.zoomFactor > this.minZoom) {
+      this.zoomFactor = parseFloat((this.zoomFactor - this.zoomStep).toFixed(2));
+    }
+  }
+
 
   // Dragging an existing item
   startDragging(event: MouseEvent, item: any) {
