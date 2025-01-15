@@ -20,6 +20,31 @@ export class ApiService {
       .post(this.baseUrl+'user/login', body)
       // .pipe(catchError(this.err.handleError));
   }
+  saveOrgConfigData(body: any): Observable<any> {
+    return this.http
+      .post(this.baseUrl+'org/hierarchy', body)
+      // .pipe(catchError(this.err.handleError));
+  }
+  getHierarcyData(body: any): Observable<any> {
+    return this.http
+      .post(this.baseUrl+'org/get-hierarchy', body)
+      // .pipe(catchError(this.err.handleError));
+  }
+  createOrgMaster(body: any): Observable<any> {
+    return this.http
+      .post(this.baseUrl+'org/master', body)
+      // .pipe(catchError(this.err.handleError));
+  }
+  getOrgMaster(body: any): Observable<any> {
+    return this.http
+      .post(this.baseUrl+'org/get-master', body)
+      // .pipe(catchError(this.err.handleError));
+  }
+  getPurchaseInventory(body: any): Observable<any> {
+    return this.http
+      .post(this.baseUrl+'purchase_inventory', body)
+      // .pipe(catchError(this.err.handleError));
+  }
   // login(body: any): Observable<any> {
   //   return this.http
   //     .post(this.baseUrl+'user/login', body)

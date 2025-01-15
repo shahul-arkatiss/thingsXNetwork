@@ -56,17 +56,19 @@ export class LoginComponent implements OnInit {
     // if (this.loginForm.valid) {
       this.service.login(body).subscribe(
         (res) => {
-          console.log('loginRes:', res);
           this.spinner.hide();
           if (res.status == "success") {
             this.router.navigateByUrl('/newSetup');
             console.log('loginResTrue:', res);
-            sessionStorage.setItem('access_token', JSON.stringify(res.data.access_token));
-            sessionStorage.setItem('company_id', JSON.stringify(res.data.company_id));
-            sessionStorage.setItem('refresh_token', JSON.stringify(res.data.refresh_token));
-            sessionStorage.setItem('user_id', JSON.stringify(res.data.user_id));
-            sessionStorage.setItem('email', JSON.stringify(res.data.email));
-
+            sessionStorage.setItem('access_token', res.data.access_token);
+            sessionStorage.setItem('company_id', res.data.company_id);
+            sessionStorage.setItem('refresh_token', res.data.refresh_token);
+            sessionStorage.setItem('user_id', res.data.user_id);
+            sessionStorage.setItem('email', res.data.email);
+            sessionStorage.setItem('address', res.data.address);
+            sessionStorage.setItem('company_name', res.data.company_name);
+            sessionStorage.setItem('full_name', res.data.email);
+            sessionStorage.setItem('telephone', res.data.telephone);
           } else {
             this.snack.open(res.msg, 'Ok', { duration: 3000 });
           }

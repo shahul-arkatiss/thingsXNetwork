@@ -5,20 +5,20 @@
         </div>
         <div class="col-sm-12">
             <mat-stepper [linear]="isLinear" #stepper>
-                <mat-step [stepControl]="firstFormGroup" label="Basic Info">
-                    <form [formGroup]="firstFormGroup"
+                <mat-step [stepControl]="basicSetupFormGroup" label="Basic Info">
+                    <div
                         class="center-block text-center d-flex flex-column align-items-center gap-2">
                         <ng-template matStepLabel>Basic Info</ng-template>
                         <div class="card col-sm-5 p-4">
                             <mat-form-field appearance="outline" class=" col-sm-12">
                                 <mat-label>Full Name</mat-label>
-                                <input matInput placeholder="Last name, First name" formControlName="firstCtrl"
+                                <input matInput placeholder="Last name, First name" [(ngModel)]="fullName"
                                     required>
                             </mat-form-field>
                             <div class="row">
                                 <mat-form-field class="col-sm-6" appearance="outline">
                                     <mat-label>Company Name</mat-label>
-                                    <input matInput placeholder="Last name, First name" formControlName="firstCtrl"
+                                    <input matInput placeholder="Last name, First name"  [(ngModel)]="companyName"
                                         required>
                                 </mat-form-field>
                                 <mat-form-field class="col-sm-6" appearance="outline">
@@ -34,19 +34,19 @@
                             <div class="row">
                                 <mat-form-field class="col-sm-6" appearance="outline">
                                     <mat-label>Email ID</mat-label>
-                                    <input matInput placeholder="Last name, First name" formControlName="firstCtrl"
+                                    <input matInput placeholder="Last name, First name"  [(ngModel)]="emailId"
                                         required>
                                 </mat-form-field>
                                 <mat-form-field class="col-sm-6" appearance="outline">
                                     <mat-label>Mobile Number </mat-label>
-                                    <input matInput placeholder="Last name, First name" formControlName="firstCtrl"
+                                    <input matInput placeholder="Last name, First name"  [(ngModel)]="mobileNum"
                                         required>
                                 </mat-form-field>
                             </div>
 
                             <mat-form-field appearance="outline" class=" col-sm-12">
                                 <mat-label>Address</mat-label>
-                                <input matInput placeholder="Last name, First name" formControlName="firstCtrl"
+                                <input matInput placeholder="Last name, First name"  [(ngModel)]="address"
                                     required>
                             </mat-form-field>
                             <div class="d-flex text-form">
@@ -63,7 +63,7 @@
                             </div>
                             <mat-form-field appearance="outline" class=" col-sm-12">
                                 <mat-label>Textarea</mat-label>
-                                <textarea matInput></textarea>
+                                <textarea matInput  [(ngModel)]="usersInvite"></textarea>
                             </mat-form-field>
 
                         </div>
@@ -73,7 +73,7 @@
                             <button mat-raised-button class="saveBtn ml-3 mt-3">Save</button>
 
                         </div>
-                    </form>
+                    </div>
                 </mat-step>
                 <mat-step [stepControl]="secondFormGroup" label="Org Structure Config">
                     <form [formGroup]="secondFormGroup"
@@ -117,7 +117,7 @@
                         <div>
                             <button mat-raised-button matStepperPrevious class="nextBtn mt-3">Previous</button>
                             <button mat-raised-button matStepperNext class="nextBtn ml-3 mt-3">Next</button>
-                            <button mat-raised-button class="saveBtn ml-3 mt-3">Save</button>
+                            <button mat-raised-button class="saveBtn ml-3 mt-3" (click)="saveOrgStructureConfigData()">Save</button>
 
                         </div>
                     </form>
@@ -163,8 +163,8 @@
                             <!-- <div *ngFor="let obj of ngtest"> -->
                                 <div *ngFor="let inp of ngtest">
                                     <mat-form-field appearance="outline" class="col-sm-12">
-                                        <mat-label>{{inp.key}}</mat-label>
-                                        <input matInput placeholder="{{inp.key}}" [(ngModel)]="inp.value">
+                                        <mat-label>{{inp.level_name}}</mat-label>
+                                        <input matInput placeholder="{{inp.level_name}}" [(ngModel)]="inp.level_description">
                                     </mat-form-field>
                                 </div>
                             <!-- </div> -->
@@ -314,13 +314,13 @@
                     <app-floor-planner></app-floor-planner>
 
                 </mat-step>
-                <mat-step [stepControl]="secondFormGroup" label="ThingsX EP Mapping">
+                <!-- <mat-step [stepControl]="secondFormGroup" label="ThingsX EP Mapping">
                     <app-d3-multi-tree></app-d3-multi-tree>
                     <div>
                         <button mat-button matStepperPrevious>Back</button>
                         <button mat-button (click)="stepper.reset()">Reset</button>
                     </div>
-                </mat-step>
+                </mat-step> -->
             </mat-stepper>
         </div>
     </div>
